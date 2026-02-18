@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "name": "underwater-defence-frontend",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "headers": {
+        "x-custom-header": "my custom header value"
+      }
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "@backend_url"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "@backend_url"
+    }
+  }
+}
